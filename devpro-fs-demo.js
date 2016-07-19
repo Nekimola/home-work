@@ -26,18 +26,6 @@ const server = http.createServer((req, res) => {
 			return;
 		}
 
-		const files = data.map(file => {
-            let result = { name: file };
-
-			try {
-				return Object.assign(result, {
-					isDirectory: fs.statSync(path.join(dir, file)).isDirectory()
-				});
-			} catch (e) {
-				return result;
-			}
-		});
-
         var promises = data.map(file => {
             let result = { name: file };
 
